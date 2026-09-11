@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lunar-900: #ffffff;
+  --color-lunar-800: #f8fafc;
+  --color-lunar-700: #e2e8f0;
+  --color-lunar-600: #cbd5e1;
+  --color-lunar-500: #94a3b8;
+  --color-lunar-400: #64748b;
+  --color-lunar-300: #475569;
+  --color-lunar-200: #334155;
+  --color-lunar-100: #1e293b;
+  --color-cyan-500: #0b3d91;
+  --color-cyan-400: #1c56b3;
+  --color-cyan-600: #082d6b;
+  --color-amber-500: #f26522;
+  --color-amber-400: #ff7f40;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: var(--color-lunar-900);
+  color: var(--color-lunar-100);
+  min-height: 100vh;
+  margin: 0;
+}
