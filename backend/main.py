@@ -32,7 +32,10 @@ def decode_image(data_url: str):
     try:
         if data_url.startswith("http"):
             # Download the image from the URL
-            req = urllib.request.Request(data_url, headers={'User-Agent': 'Mozilla/5.0'})
+            req = urllib.request.Request(data_url, headers={
+                'User-Agent': 'Mozilla/5.0',
+                'ngrok-skip-browser-warning': 'true'
+            })
             with urllib.request.urlopen(req) as response:
                 data = response.read()
             np_arr = np.frombuffer(data, np.uint8)

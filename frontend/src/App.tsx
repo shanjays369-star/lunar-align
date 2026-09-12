@@ -98,7 +98,7 @@ export default function App() {
     if (!imgA) return;
     setIsProcessingTerrain(true);
     
-    const resolveUrl = (url: string) => url.startsWith('/') ? window.location.origin + url : url;
+    const resolveUrl = (url: string) => url.startsWith('/') ? 'http://127.0.0.1:5173' + url : url;
     
     try {
       const response = await fetch("/api/terrain_analysis", {
@@ -127,9 +127,9 @@ export default function App() {
 
   const handleLoadMosaicDemo = () => {
     setMosaicImages([
-      window.location.origin + '/mosaic_1.jpg',
-      window.location.origin + '/mosaic_2.jpg',
-      window.location.origin + '/mosaic_3.jpg'
+      'http://127.0.0.1:5173/mosaic_1.jpg',
+      'http://127.0.0.1:5173/mosaic_2.jpg',
+      'http://127.0.0.1:5173/mosaic_3.jpg'
     ]);
   };
 
@@ -203,7 +203,7 @@ End of Report.
     setIsProcessing(true);
     setResult(null);
     
-    const resolveUrl = (url: string) => url.startsWith('/') ? window.location.origin + url : url;
+    const resolveUrl = (url: string) => url.startsWith('/') ? 'http://127.0.0.1:5173' + url : url;
     
     // Call the actual Python backend
     try {
