@@ -92,36 +92,7 @@ export default function App() {
     return date.toLocaleTimeString('en-US', { timeZone, hour12: false, hour: '2-digit', minute:'2-digit', second:'2-digit' });
   };
 
-  const handleRegister = async () => {
-    if (!imgA || !imgB) return;
-    setIsProcessing(true);
-    setResult(null);
-    
-    const resolveUrl = (url: string) => url.startsWith('/') ? window.location.origin + url : url;
 
-    try {
-      const response = await fetch("/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          imageA: resolveUrl(imgA),
-          imageB: resolveUrl(imgB),
-          method: method
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to connect to backend. Make sure the FastAPI server is running on port 8001.");
-      }
-
-      const data = await response.json();
-      setResult(data);
-    } catch (e: any) {
-      alert(e.message);
-    } finally {
-      setIsProcessing(false);
-    }
-  };
 
   const handleTerrainAnalysis = async () => {
     if (!imgA) return;
@@ -236,7 +207,7 @@ End of Report.
     
     // Call the actual Python backend
     try {
-      const response = await fetch('http://localhost:8001/register', {
+      const response = await fetch('/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
